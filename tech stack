@@ -1,0 +1,49 @@
+## 🛠 Tech Stack
+
+### Backend
+- Python 3.11+
+- FastAPI (High-performance REST API framework)
+- Uvicorn (ASGI server)
+
+### Data Processing & Machine Learning
+- Pandas (Data manipulation and preprocessing)
+- NumPy (Numerical computations)
+- Scikit-learn (Regression modeling and evaluation)
+- Statsmodels (ARIMA / SARIMA time-series forecasting)
+- SciPy (Statistical calculations)
+- Joblib (Model serialization and persistence)
+
+### Risk Analytics
+- NumPy & SciPy (Volatility, statistical risk metrics)
+- Custom Monte Carlo Simulation (Stress testing & scenario modeling)
+
+### Database
+- PostgreSQL (Relational database)
+- SQLAlchemy (ORM layer)
+- Alembic (Database migrations)
+
+### Caching (Optional for performance)
+- Redis (Forecast result caching)
+
+### Authentication & Security
+- JWT-based Authentication
+- OAuth2 (FastAPI security utilities)
+- Role-Based Access Control (RBAC)
+
+### API Documentation
+- OpenAPI (Auto-generated API schema)
+- Swagger UI (Interactive API testing)
+
+### DevOps & Environment
+- Docker (Containerization)
+- Docker Compose (Service orchestration)
+- GitHub (Version control)
+
+### Logging & Monitoring
+- Python Logging (Structured logs)
+- Loguru (Enhanced logging support)
+
+### Development Tools
+- VS Code
+- Postman (API testing)
+- pgAdmin (Database management)

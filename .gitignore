@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+# Virtual Environment
+venv/
+.env
+
+# Environment variables
+.env.*
+
+# PostgreSQL
+*.sql
+
+# Logs
+*.log
+
+# Mac
+.DS_Store
+
+# Docker
+*.pid

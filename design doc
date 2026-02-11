@@ -1,0 +1,78 @@
+This design document is based on the **Personal Finance iOS App** concept by Fireart Studio. The design emphasizes a "Glassmorphism" aesthetic combined with high-contrast data visualization to make complex financial information digestible and engaging.
+
+---
+
+# Design Documentation: Personal Finance iOS App
+
+## 1. Project Overview
+
+The goal of this application is to provide users with a centralized, visually intuitive dashboard for tracking personal wealth, managing bank cards, and monitoring spending habits. The design prioritizes clarity, modern aesthetics, and quick-action accessibility.
+
+## 2. Visual Strategy
+
+### 2.1 Color Palette
+
+* **Primary (Action):** Vivid Electric Green (`#C6FF00` approx.) — Used for primary CTAs, positive trends, and active states.
+* **Secondary (Dark Mode Base):** Deep Charcoal/Black (`#0D0D0D`) — Provides a premium, high-contrast background that makes data "pop."
+* **Accents:** Cyber Purple and Soft Blues — Used in gradients on credit card assets and data charts to differentiate categories.
+* **Typography Neutral:** Pure White (`#FFFFFF`) for headers and Off-Gray (`#8E8E93`) for secondary metadata.
+
+### 2.2 Typography
+
+* **Font Family:** San Francisco (System UI) or a similar geometric Sans-Serif (e.g., Inter).
+* **Styles:**
+* **Large Titles:** Bold, high-contrast for "Total Balance" figures.
+* **Subheaders:** Medium weight, uppercase for category labels (e.g., "MY CARDS").
+* **Body:** Regular weight for transaction details and dates.
+
+
+
+### 2.3 Key UI Elements
+
+* **Glassmorphism:** Use of background blur and semi-transparent overlays on card elements to create depth.
+* **Rounded Corners:** High corner radius (approx. 24pt–32pt) on containers and buttons to maintain a friendly, modern mobile feel.
+* **Tactile Cards:** Credit cards are rendered with subtle gradients and "glass" textures to mimic physical premium cards.
+
+---
+
+## 3. Information Architecture & Screens
+
+### 3.1 Dashboard (Home)
+
+* **Total Balance Header:** Centralized focus on net worth with a "percentage growth" indicator.
+* **Horizontal Card Carousel:** Allows users to swipe through multiple linked bank accounts/cards.
+* **Quick Actions:** Floating or prominent buttons for "Transfer," "Pay," and "Top Up."
+
+### 3.2 Analytics & Statistics
+
+* **Line/Area Charts:** Smooth, bezier-curved graphs showing spending trends over time.
+* **Category Breakdown:** Circular progress rings or icon-based lists showing where money is spent (e.g., Shopping, Food, Transport).
+
+### 3.3 Transaction History
+
+* **Categorized List:** Grouped by date with high-quality icons for vendors.
+* **Amount Indicators:** Distinct color coding for outflows (white/gray) vs. inflows (green).
+
+---
+
+## 4. Interaction Design
+
+* **Micro-interactions:** Smooth transitions when swiping between cards in the carousel.
+* **Haptic Feedback:** Short vibrations when a transaction is confirmed or a card is swapped.
+* **Gestures:** Downward swipe to refresh data; horizontal swipe on transactions to reveal "Archive" or "Delete" options.
+
+---
+
+## 5. Design Principles Applied
+
+1. **Hierarchy:** The most important information (Balance) is the largest element on the screen.
+2. **Contrast:** The neon green against the dark background ensures that the most important action items are immediately visible even in low light.
+3. **Consistency:** Iconography follows a consistent "Line Art" style with uniform stroke weights.
+
+---
+
+## 6. Implementation Notes for Developers
+
+* **Blur Effects:** Use `UIVisualEffectView` (iOS) or `BackdropFilter` (Flutter) to achieve the glassmorphism look.
+* **Gradients:** Use linear gradients for cards to avoid a flat look.
+* **Accessibility:** Ensure the neon green text meets WCAG contrast ratios against dark backgrounds for readability.
