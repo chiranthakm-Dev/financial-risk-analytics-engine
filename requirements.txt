@@ -1,0 +1,48 @@
+# Core Framework
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+
+# Data Processing & ML
+pandas
+numpy
+scikit-learn
+statsmodels
+scipy
+
+# Database
+psycopg2-binary
+sqlalchemy
+alembic
+
+# Serialization & Model Persistence
+joblib
+python-multipart
+
+# Authentication & Security
+pyjwt
+passlib[bcrypt]
+python-jose[cryptography]
+
+# Caching (Optional)
+redis
+
+# Logging & Monitoring
+loguru
+
+# Development & Testing
+pytest
+pytest-asyncio
+pytest-cov
+httpx
+
+# Code Quality
+black
+flake8
+mypy
+isort
+
+# Utilities
+python-dotenv
+requests
