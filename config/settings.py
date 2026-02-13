@@ -15,7 +15,8 @@ class Settings(BaseSettings):
     server_port: int = 8000
     
     # Database settings
-    database_url: str = "postgresql://user:password@localhost:5432/forecasting_db"
+    database_url: str = "sqlite:///./forecasting.db"  # SQLite for local development
+    # For PostgreSQL: database_url: str = "postgresql://user:password@localhost:5432/forecasting_db"
     
     # JWT settings
     secret_key: str = "your-secret-key-change-in-production"
