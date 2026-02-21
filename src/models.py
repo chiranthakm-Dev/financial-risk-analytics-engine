@@ -17,7 +17,9 @@ class UserRole(str, Enum):
     """User role enumeration"""
     ADMIN = "admin"
     ANALYST = "analyst"
+    TRADER = "trader"
     VIEWER = "viewer"
+    USER = "user"
 
 
 class ModelType(str, Enum):
