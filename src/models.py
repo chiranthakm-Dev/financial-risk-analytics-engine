@@ -70,10 +70,13 @@ class DataUpload(Base):
     user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
     filename = Column(String(255), nullable=False)
     data_type = Column(String(50), nullable=False)  # e.g., "financial_data", "time_series"
-    row_count = Column(Integer, nullable=False)
+    rows_uploaded = Column(Integer, nullable=False, default=0)
+    rows_valid = Column(Integer, nullable=False, default=0)
     status = Column(String(50), default="validated", nullable=False)  # validated, processing, error
     error_message = Column(Text)
-    schema_info = Column(JSON)  # Store schema info, column names, etc.
+    source = Column(String(100))
+    upload_metadata = Column(JSON)  # Store schema info, column names, original columns, etc.
+    schema_info = Column(JSON)  # Backwards-compatible: Store schema info, column names, etc.
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -92,20 +95,27 @@ class TimeSeriesData(Base):
     __tablename__ = "timeseries_data"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    data_upload_id = Column(String(36), ForeignKey("data_uploads.id", ondelete="CASCADE"), nullable=False)
+    upload_id = Column(String(36), ForeignKey("data_uploads.id", ondelete="CASCADE"), nullable=False, index=True)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     timestamp = Column(DateTime, nullable=False, index=True)
-    value = Column(Float, nullable=False)
-    category = Column(String(100), nullable=False)  # e.g., "revenue", "expense", "cash_flow"
-    attributes = Column(JSON)  # Additional attributes
+    symbol = Column(String(50), nullable=False, index=True)
+    open_price = Column(Float)
+    high_price = Column(Float)
+    low_price = Column(Float)
+    close_price = Column(Float)
+    volume = Column(Integer)
+    adjusted_close = Column(Float)
+    attributes = Column(JSON)  # Additional attributes/backwards compat
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     # Relationships
     data_upload = relationship("DataUpload", back_populates="timeseries_data")
+    user = relationship("User")
 
     __table_args__ = (
-        Index("idx_ts_upload_id", "data_upload_id"),
+        Index("idx_ts_upload_id", "upload_id"),
         Index("idx_ts_timestamp", "timestamp"),
-        Index("idx_ts_category_timestamp", "category", "timestamp"),
+        Index("idx_ts_symbol_timestamp", "symbol", "timestamp"),
     )
 
 

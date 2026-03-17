@@ -14,7 +14,7 @@ from loguru import logger
 from jose import JWTError
 
 from config.settings import get_settings
-from src.routes import auth
+from src.routes import auth, data
 
 # Configure logger
 settings = get_settings()
@@ -127,6 +127,7 @@ async def root():
 
 # Include routers
 app.include_router(auth.router)
+app.include_router(data.router)
 
 # Import other routers (will be created in later tasks)
 # from src.routes import data_ingestion, forecasting, risk_analytics, kpi
